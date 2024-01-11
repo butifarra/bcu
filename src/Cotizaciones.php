@@ -4,6 +4,7 @@ namespace biller\bcu;
 
 use DateTime;
 use Exception;
+use biller\bcu\UltimoCierre;
 
 class Cotizaciones
 {
@@ -16,7 +17,7 @@ class Cotizaciones
                 throw new Exception('Formato de fecha no es AAAA-MM-DD');
             }
         } else {
-            $fecha = self::obtenerUltimoCierre();
+            $fecha = UltimoCierre::obtener();
         }
 
         $cache = self::cacheGet($fecha, $moneda, $grupo);
